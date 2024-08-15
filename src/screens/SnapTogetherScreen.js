@@ -18,6 +18,8 @@ import {
 } from "react-native-safe-area-context";
 import { useFilteredData } from "../utils/hooks/useFilteredData";
 import SnapTogetherFeed from "../components/SnapTogetherFeed";
+import Icon from "react-native-vector-icons/MaterialIcons";
+import InfoSheet from "../components/InfoSheet";
 
 export default function SnapTogetherScreen() {
   const navigation = useNavigation();
@@ -25,7 +27,7 @@ export default function SnapTogetherScreen() {
   const [story1, setStory1] = useState([]);
   const [story2, setStory2] = useState([]);
   const [story3, setStory3] = useState([]);
-  const [showStory, setShowStory] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState(null);
 
   const handleSectionPress = async (buttonTitle) => {
@@ -121,13 +123,15 @@ export default function SnapTogetherScreen() {
             title={"Career Boost"}
             onPress={() => handleSectionPress("Career Boost")}
           >
-            <Text style={styles.button}>Career Boost</Text>
+            <View style={{flexDirection: "row", alignContent: "center"}}>
+              <Text style={styles.button}>Career Boost</Text>
+              <Icon name="event" size={32} color="black" style={styles.subTitle}/>
+            </View>
           </TouchableOpacity>
           {story1.length > 0 && (
             <FlatList
               data={filteredStory1}
               horizontal={true}
-              // numColumns={2}
               ItemSeparatorComponent={() => (
                 <View style={{ width: 30, marginBottom: 350 }} />
               )}
@@ -136,9 +140,8 @@ export default function SnapTogetherScreen() {
                   title={item.username}
                   eventImage={item.poster_url}
                   selectedCompany={item}
-                  pageName={"SnapTogether"}
                   handlePress={() => {
-                    setShowStory(true);
+                    setShowAbout(true);
                     setSelectedCompany(item);
                   }}
                 />
@@ -155,13 +158,16 @@ export default function SnapTogetherScreen() {
             <Text style={styles.buttonText}>See more</Text>
           </Pressable>
         </View>
-
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             title={"Mom & Pops"}
             onPress={() => handleSectionPress("Mom & Pops")}
           >
-            <Text style={styles.button}>Mom & Pops</Text>
+            
+            <View style={{flexDirection: "row", alignContent: "center"}}>
+              <Text style={styles.button}>Mom & Pops</Text>
+              <Icon name="event" size={32} color="black" style={styles.subTitle}/>
+            </View>
           </TouchableOpacity>
           {story2.length > 0 && (
             <FlatList
@@ -175,8 +181,9 @@ export default function SnapTogetherScreen() {
                 <SnapTogetherFeed
                   title={item.username}
                   eventImage={item.poster_url}
+                  selectedCompany={item}
                   handlePress={() => {
-                    setShowStory(true);
+                    setShowAbout(true);
                     setSelectedCompany(item);
                   }}
                 />
@@ -198,7 +205,10 @@ export default function SnapTogetherScreen() {
             title={"Showcase"}
             onPress={() => handleSectionPress("Showcase")}
           >
-            <Text style={styles.button}>Showcase</Text>
+            <View style={{flexDirection: "row", alignContent: "center"}}>
+              <Text style={styles.button}>Showcase</Text>
+              <Icon name="event" size={32} color="black" style={styles.subTitle}/>
+            </View>
           </TouchableOpacity>
           {story3.length > 0 && (
             <FlatList
@@ -212,8 +222,9 @@ export default function SnapTogetherScreen() {
                 <SnapTogetherFeed
                   title={item.username}
                   eventImage={item.poster_url}
+                  selectedCompany={item}
                   handlePress={() => {
-                    setShowStory(true);
+                    setShowAbout(true);
                     setSelectedCompany(item);
                   }}
                 />
@@ -232,6 +243,14 @@ export default function SnapTogetherScreen() {
         </View>
         {/* <View style={{height: 300}}> </View> */}
       </ScrollView>
+      {/* If infosheet is shown */}
+      <View>
+        {/* <InfoSheet
+          showAbout={showAbout}
+          setShowAbout={setShowAbout}
+          selectedCompany={selectedCompany}
+        /> */}
+      </View>
     </SafeAreaView>
   );
 }
@@ -271,11 +290,21 @@ const styles = StyleSheet.create({
     alignItems: "left",
   },
   button: {
-    fontSize: 26,
+    fontSize: 20,
     fontWeight: "bold",
     alignSelf: "flex-start",
     fontFamily: "avenir",
+    paddingBottom: 5,
     paddingTop: 10,
+    paddingLeft: 10,
+    textDecorationLine: "underline",
+  },
+  subTitle: {
+    // fontWeight: "semibold",
+    // alignSelf: "flex-start",
+    // fontFamily: "avenir",
+    paddingBottom: 5,
+    paddingTop: 5,
     paddingLeft: 10,
   },
   buttonText: {

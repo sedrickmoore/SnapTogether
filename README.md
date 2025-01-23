@@ -1,36 +1,7 @@
-# Final Project Starter
+# SnapTogether
 
-This will be the starter code for your final project! But first, we're going to spend a day making improvements to it. We'll use pull requests to manage this, and for that you'll need to be on your own branch. You can work in pairs or on your own.
+This demo feature for an app based on Snapchat is set to connect users in underserved communities with opportunities crafted for them, as well as to promote local talent in their neighborhoods.
 
-## Fork the Repository 
-Click on the Fork button: This is usually found in the top-right corner of the repository's page. This will create a copy of the repository under your own GitHub account.
+The project uses React Native within Expo. Expo GO is currently the best way to test the app. All data is written to Supabase. There are also other, smaller features, such as an astrology page that requires an API key from RapidAPI if interested.
 
-## Clone the Forked Repository
-1. Go to your forked repository on GitHub.
-2. Click on the green "Code" button and copy the URL.
-3. Open your terminal or Git Bash and run: 
-```js
-$ git clone https://github.com/your-username/repository-name.git
-
-```
-4. Navigate to the repository directory
-
-# Install Yarn
-1. Run the following command to be able to run your program.
-```js
-$ git yarn install
-```
-
-# Set Up the Upstream Remote
-1. Add the original repository as a remote: This allows you to pull in updates from the original repository.
-```js
-$ git remote add upstream https://github.com/Snap-Engineering-Academy-2024/SnapChatStarter.git
-```
-2. Verify the new remote named 'upstream'
-
-```js
-$ git remote -v
-```
-##  Add Supabase Environment Variable!
-
-Get the code running! You'll need to rename `.env.example` to `.env.local` file. You should be able to reuse the Supabase keys from earlier's week project.
+Currently, the feature (and app) are setup simply to demonstrate the teams. In future iterations, more functionality may be included.

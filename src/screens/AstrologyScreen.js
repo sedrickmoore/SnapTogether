@@ -75,7 +75,7 @@ export default function AstrologyScreen() {
       })
       .catch((error) =>
         console.error(
-          "RapidAPI key failure. Please contact Bee on Slack for more info.",
+          "RapidAPI key failure.",
         ),
       );
   }
